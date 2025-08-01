@@ -19,7 +19,8 @@ The setup includes:
 ## Prerequisites
 
 - **Docker**: Required to run the GitHub MCP server
-- **GitHub Personal Access Token**: For GitHub API authentication
+- **GitHub Personal Access Token**: For GitHub API authentication (required)
+- **Optional Configuration**: For GitHub Enterprise users
 
 ## Quick Start
 
@@ -43,9 +44,9 @@ The setup includes:
 
 4. **Restart Gemini** to load the new MCP server
 
-## Environment Variables Setup
+## Environment Variables
 
-### GitHub Personal Access Token
+### GitHub Personal Access Token (required)
 
 1. Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
 2. Generate a new token with appropriate permissions:
@@ -86,7 +87,7 @@ The MCP server configuration uses Docker to run the official GitHub MCP server:
         "ghcr.io/github/github-mcp-server"
       ],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PAT"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "your_github_personal_access_token_here"
       }
     }
   }
