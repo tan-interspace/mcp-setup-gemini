@@ -1,0 +1,15 @@
+# Environment variables with sensitive information
+.env
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log

@@ -13,6 +13,7 @@ The setup includes:
 
 - `mcp-servers.json` - MCP server configuration file
 - `gemini-mcp-setup.sh` - Automated setup script
+- `.env.example` - Environment variables template
 - `README.md` - This documentation
 
 ## Prerequisites
@@ -28,26 +29,44 @@ The setup includes:
    cd mcp-setup-gemini
    ```
 
-2. **Run the setup script**:
+2. **Configure environment variables**:
+   ```bash
+   cp .env.example .env
+   # Edit .env file and add your GitHub Personal Access Token
+   ```
+
+3. **Run the setup script**:
    ```bash
    chmod +x gemini-mcp-setup.sh
    ./gemini-mcp-setup.sh
    ```
 
-3. **Configure your GitHub token**:
-   - Edit `~/.gemini/settings.json`
-   - Replace `YOUR_GITHUB_PAT` with your actual GitHub Personal Access Token
-
 4. **Restart Gemini** to load the new MCP server
 
-## GitHub Personal Access Token Setup
+## Environment Variables Setup
+
+### GitHub Personal Access Token
 
 1. Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
 2. Generate a new token with appropriate permissions:
    - `repo` - Full control of private repositories
    - `read:org` - Read org and team membership
    - `user:email` - Access user email addresses
-3. Copy the token and replace `YOUR_GITHUB_PAT` in the configuration file
+3. Copy the token and add it to your `.env` file:
+   ```bash
+   GITHUB_PERSONAL_ACCESS_TOKEN=your_actual_token_here
+   ```
+
+### Optional Configuration
+
+For GitHub Enterprise users, you can also configure:
+```bash
+# GitHub Enterprise Server URL
+GITHUB_ENTERPRISE_URL=https://your-github-enterprise.com
+
+# Custom GitHub API URL
+GITHUB_API_URL=https://api.your-github-enterprise.com
+```
 
 ## Configuration Details
 
