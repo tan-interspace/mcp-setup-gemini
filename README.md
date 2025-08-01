@@ -35,7 +35,7 @@ The setup includes:
    ```
 
 3. **Configure your GitHub token**:
-   - Edit `~/.config/gemini-mcp/mcp-servers.json`
+   - Edit `~/.gemini/settings.json`
    - Replace `YOUR_GITHUB_PAT` with your actual GitHub Personal Access Token
 
 4. **Restart Gemini** to load the new MCP server

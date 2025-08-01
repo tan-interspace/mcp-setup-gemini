@@ -9,14 +9,14 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-# Create MCP config directory
-MCP_CONFIG_DIR="$HOME/.config/gemini-mcp"
-mkdir -p "$MCP_CONFIG_DIR"
+# Create Gemini config directory
+GEMINI_CONFIG_DIR="$HOME/.gemini"
+mkdir -p "$GEMINI_CONFIG_DIR"
 
-# Copy mcp-servers.json to config directory
+# Copy mcp-servers.json to Gemini config directory as settings.json
 if [ -f "mcp-servers.json" ]; then
-    cp mcp-servers.json "$MCP_CONFIG_DIR/"
-    echo "✅ Copied mcp-servers.json to $MCP_CONFIG_DIR"
+    cp mcp-servers.json "$GEMINI_CONFIG_DIR/settings.json"
+    echo "✅ Copied mcp-servers.json to $GEMINI_CONFIG_DIR/settings.json"
 else
     echo "❌ mcp-servers.json not found in current directory"
     exit 1
@@ -27,13 +27,13 @@ echo "📦 Pulling GitHub MCP server Docker image..."
 docker pull ghcr.io/github/github-mcp-server
 
 # Set permissions
-chmod +x "$MCP_CONFIG_DIR/mcp-servers.json"
+chmod +x "$GEMINI_CONFIG_DIR/settings.json"
 
 echo "✅ Gemini MCP setup completed!"
-echo "📁 Config file location: $MCP_CONFIG_DIR/mcp-servers.json"
+echo "📁 Config file location: $GEMINI_CONFIG_DIR/settings.json"
 echo ""
 echo "📝 Next steps:"
-echo "1. Edit $MCP_CONFIG_DIR/mcp-servers.json and replace 'YOUR_GITHUB_PAT' with your actual GitHub Personal Access Token"
+echo "1. Edit $GEMINI_CONFIG_DIR/settings.json and replace 'YOUR_GITHUB_PAT' with your actual GitHub Personal Access Token"
 echo "2. Restart Gemini to load the GitHub MCP server"
 echo ""
 echo "🔑 To create a GitHub Personal Access Token:"
